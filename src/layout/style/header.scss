@@ -1,0 +1,43 @@
+@import "~common/style/common/variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 35px;
+  line-height: 1;
+  text-transform: capitalize;
+  font-family: $font-fira-sans;
+  font-weight: 900;
+  color: $dark-blue;
+}
+
+.logo-img {
+  height: 80px;
+  margin-right: 4px;
+}
+
+.nav-item {
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100px;
+  cursor: pointer;
+  transition: .2s;
+  &:hover {
+    color: $secondary;
+    background-color: rgba(244, 244, 244, .5);
+  }
+}
+
+.nav-button {
+  padding: 0 30px;
+}

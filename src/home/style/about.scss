@@ -1,0 +1,63 @@
+@import "~common/style/common/variables";
+
+.icon {
+  display: block;
+  margin: 0 auto 15px;
+  size: 150px;
+  border-radius: 50%;
+}
+
+.icon-bubbles {
+  background: url("../img/bubbles.svg") $blue no-repeat center;
+  background-size: auto 100px;
+}
+
+.icon-baby {
+  background: url("../img/baby.svg") $pink no-repeat center;
+  background-size: auto 100px;
+}
+
+.icon-list {
+  background: url("../img/list.svg") $green no-repeat center;
+  background-size: auto 90px;
+}
+
+.icon-phone {
+  background: url("../img/phone.svg") $yellow no-repeat center;
+  background-size: auto 90px;
+}
+
+.section-bg {
+  position: relative;
+  background: url("../img/about-bg.jpg") no-repeat;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  &:before {
+    content: '';
+    position: absolute 0;
+    z-index: 1;
+    background-color: rgba(244, 244, 244, 0.8);
+  }
+  :global(.container) {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.ripple-button {
+  pointer-events: auto;
+}
+
+.button {
+  width: 200px;
+  font-size: 17px;
+  line-height: 17px;
+  font-weight: 500;
+  color: $blue;
+  border: 2px solid $blue;
+  border-radius: 3px;
+  box-shadow: rgb(153, 153, 153) 0 0 0 0;
+  cursor: pointer;
+  padding: 18px 35px;
+  background: transparent;
+}
