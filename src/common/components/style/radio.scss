@@ -1,0 +1,66 @@
+@import "~common/style/common/variables";
+
+.field {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.radio {
+  + .label {
+    font-weight: normal;
+    cursor: pointer;
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 0;
+    line-height: 20px;
+    white-space: nowrap;
+  }
+  &:not(checked) {
+    position: absolute;
+    opacity: 0;
+    + .label {
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 1px solid $light-gray;
+        background: $white;
+        transition: all .15s ease-out;
+      }
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        top: 6px;
+        left: 6px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #FFF;
+        transition: all .15s ease-out;
+      }
+    }
+  }
+  &:checked {
+    + .label {
+      &:before {
+        background: $primary;
+        border-color: $primary;
+      }
+      &:after {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

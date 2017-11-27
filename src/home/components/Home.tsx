@@ -5,6 +5,8 @@ const wow = require('wowjs')
 
 import Slider from './Slider'
 import About from './About'
+import SchemeWorking from './SchemeWorking'
+import OrderForm from './OrderForm'
 
 const cx = classNames.bind(require('../style/home.scss'))
 
@@ -20,9 +22,8 @@ export default class Home extends React.Component<{}, {}> {
             <div>
                 <Slider />
                 <About />
-                <div className="container">
-                    <div style={{height: 1000}} />
-                </div>
+                <SchemeWorking />
+                <OrderForm />
             </div>
         )
     }
