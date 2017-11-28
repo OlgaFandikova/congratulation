@@ -45,7 +45,8 @@ export default class SelectField extends React.Component<Props, State> {
                     className={cx('value', {'focus': this.state.isOpenMenu}, {'error': error})}
                     onClick={this.handleToggleMenu}
                 >
-                    {value ? value : placeholder}
+                    {value ? value : <span className={cx('placeholder')}>{placeholder}</span>}
+                    <span className={cx('arrows')} />
                 </div>
                 <ul className={cx('menu', {'open': this.state.isOpenMenu})}>
                     {options.map((option: string, index: number) => (

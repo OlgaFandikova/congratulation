@@ -1,15 +1,17 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-const classNames = require('classnames/bind')
+import {Moment} from 'moment'
+const moment = require('moment')
 
 import InputField from 'common/components/InputField'
 import TextareaField from 'common/components/TextareaField'
 import SelectField from 'common/components/SelectField'
+import DatePicker from 'common/components/DatePicker'
 import Radio from 'common/components/Radio'
 import Button from 'common/components/Button'
 
-const cx = classNames.bind(require('../style/orderForm.scss'))
+import 'react-datepicker/dist/react-datepicker.css'
 
 
 interface FormProps {
@@ -22,6 +24,7 @@ interface FormProps {
     city: string
     comment: string
     character: string
+    date: Moment
 }
 
 interface State {
@@ -38,7 +41,8 @@ const initialFormState = {
     gender: 'Мальчик',
     city: '',
     comment: '',
-    character: ''
+    character: '',
+    date: null as any
 }
 
 const characterOptions = ['Дед Мороз', 'Нолик (Фиксики)', 'Молния Маквин (Тачки)', 'Смешарики (Крош)',
@@ -54,10 +58,10 @@ export default class OrderForm extends React.Component<{}, State> {
     }
 
     render() {
-        const {form: {name, phone, email, babyName, babyAge, gender, city, comment, character}, formErrors} = this.state
+        const {form: {name, phone, email, babyName, babyAge, gender, city, comment, character, date}, formErrors} = this.state
 
         return (
-            <section className={cx('section')} style={{marginBottom: 1000}}>
+            <section className="section" style={{marginBottom: 1000}}>
                 <div className="container">
                     <h2 className="mb-10 text-primary text-center">Оставить заявку</h2>
                     <p className="font-18 text-center">Для заказа необходимо оставить заявку на сайте</p>
@@ -124,7 +128,17 @@ export default class OrderForm extends React.Component<{}, State> {
                                 error={formErrors.city ? formErrors.city : ''}
                                 onChange={(e: any) => this.handleChangeField('city', e.target.value)}
                             />
-                            дата время
+                            <DatePicker
+                                selected={date}
+                                showTimeSelect
+                                timeFormat="HH:mm"
+                                timeIntervals={15}
+                                dateFormat="LLL"
+                                locale="ru"
+                                error={formErrors.date ? formErrors.date : ''}
+                                placeholderText="Выберите дату и время поздравления"
+                                onChange={(date: Moment) => this.handleChangeField('date', date)}
+                            />
                             <TextareaField
                                 placeholder="Комментарий"
                                 value={comment}
@@ -140,7 +154,7 @@ export default class OrderForm extends React.Component<{}, State> {
         )
     }
 
-    private handleChangeField = (field: string, value: string) => {
+    private handleChangeField = (field: string, value: any) => {
         this.setState({...this.state,
             form: {...this.state.form,
                 [field]: value
@@ -166,7 +180,7 @@ export default class OrderForm extends React.Component<{}, State> {
     }
 
     private handleValidate = (values: FormProps) => {
-        let errors = {} as FormProps
+        let errors = {} as any
 
         if (!values.name) {
             errors.name = 'Введите Ваше имя'
@@ -188,6 +202,9 @@ export default class OrderForm extends React.Component<{}, State> {
         }
         if (!values.character) {
             errors.character = 'Выберите персонажа'
+        }
+        if (!values.date) {
+            errors.date = 'Выберите дату и время поздравления'
         }
 
         return errors

@@ -39,13 +39,17 @@
   "dependencies": {
     "@types/classnames": "^2.2.3",
     "@types/gsap": "^1.19.1",
+    "@types/moment": "^2.13.0",
     "@types/node": "^8.0.53",
     "@types/react": "^16.0.25",
+    "@types/react-datepicker": "^0.55.1",
     "@types/react-dom": "^16.0.3",
     "animate.css": "^3.5.2",
     "classnames": "^2.2.5",
     "gsap": "^1.20.3",
+    "moment": "^2.19.2",
     "react": "^16.1.1",
+    "react-datepicker": "^0.61.0",
     "react-dom": "^16.1.1",
     "typescript": "^2.6.1",
     "wowjs": "^1.1.3"
