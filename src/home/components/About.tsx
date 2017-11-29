@@ -44,7 +44,7 @@ export default class About extends React.Component<{}, {}> {
                         </div>
                     </div>
                 </section>
-                <section className={cx('section', 'section-bg', 'wow', 'fadeInUp')} {...delays[1]}>
+                <section className={cx('section', 'section-bg', 'wow', 'fadeInUp')}>
                     <div className="container text-center">
                         <h3 className="font-38 mb-30">
                             Впервые в России<br/>авторские поздравления для Ваших деток!

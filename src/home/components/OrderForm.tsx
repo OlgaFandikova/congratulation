@@ -10,6 +10,7 @@ import SelectField from 'common/components/SelectField'
 import DatePicker from 'common/components/DatePicker'
 import Radio from 'common/components/Radio'
 import Button from 'common/components/Button'
+import SuccessOrderModal from './SuccessOrderModal'
 
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -30,6 +31,7 @@ interface FormProps {
 interface State {
     form: FormProps
     formErrors: FormProps
+    isOpenSuccessOrderModal: boolean
 }
 
 const initialFormState = {
@@ -54,14 +56,16 @@ export default class OrderForm extends React.Component<{}, State> {
 
     state = {
         form: initialFormState,
-        formErrors: {} as FormProps
+        formErrors: {} as FormProps,
+        isOpenSuccessOrderModal: false
     }
 
     render() {
-        const {form: {name, phone, email, babyName, babyAge, gender, city, comment, character, date}, formErrors} = this.state
+        const {form: {name, phone, email, babyName, babyAge, gender, city, comment, character, date}, formErrors,
+               isOpenSuccessOrderModal} = this.state
 
         return (
-            <section className="section" style={{marginBottom: 1000}}>
+            <section className="section">
                 <div className="container">
                     <h2 className="mb-10 text-primary text-center">Оставить заявку</h2>
                     <p className="font-18 text-center">Для заказа необходимо оставить заявку на сайте</p>
@@ -69,15 +73,27 @@ export default class OrderForm extends React.Component<{}, State> {
                     <form
                         ref="form"
                         style={{display: 'none'}}
-                        action="https://docs.google.com/forms/d/e/1FAIpQLSf-A1wMtHOSt4YXezM7BsWLmk6_qslcpgz2B1hl5GLJ8FP1iw/formResponse"
+                        action="https://docs.google.com/forms/d/e/1FAIpQLSc_XomZ1kqHqP5BhALVdLhAzDOPZbwY_MOaRjW1_zbtkcE50Q/formResponse"
                         method="post"
                         target="hiddenIframe"
                     >
-                        <input type="text" name="entry.811039018" value={name} readOnly />
-                        <input type="text" name="entry.1890618662" value={gender} readOnly />
+                        <input type="text" name="entry.521284723" value={name} readOnly />
+                        <input type="text" name="entry.1842782635" value={phone} readOnly />
+                        <input type="text" name="entry.1758408083" value={email} readOnly />
+                        <input type="text" name="entry.1185931276" value={babyName} readOnly />
+                        <input type="text" name="entry.1769270770" value={gender} readOnly />
+                        <input type="text" name="entry.217536178" value={babyAge} readOnly />
+                        <input type="text" name="entry.1935632738" value={character} readOnly />
+                        <input type="text" name="entry.822369980" value={city} readOnly />
+                        <input type="text" name="entry.2138541312_day" value={moment(date).format('DD')} readOnly />
+                        <input type="text" name="entry.2138541312_month" value={moment(date).format('MM')} readOnly />
+                        <input type="text" name="entry.2138541312_year" value={moment(date).format('YYYY')} readOnly />
+                        <input type="text" name="entry.297930897_hour" value={moment(date).format('HH')} readOnly />
+                        <input type="text" name="entry.297930897_minute" value={moment(date).format('mm')} readOnly />
+                        <input type="text" name="entry.1022715280" value={comment} readOnly />
                     </form>
                     <div className="row mt-60">
-                        <div className="column sm-6">
+                        <div className="column sm-6 wow slideInLeft">
                             <InputField
                                 placeholder="Ваше имя"
                                 value={name}
@@ -114,7 +130,7 @@ export default class OrderForm extends React.Component<{}, State> {
                             <Radio id="girl" name="gender" label="Девочка" checked={gender == 'Девочка'}
                                    onChange={() => this.handleChangeField('gender', 'Девочка')} />
                         </div>
-                        <div className="column sm-6">
+                        <div className="column sm-6 wow slideInRight">
                             <SelectField
                                 placeholder="Выберите персонажа"
                                 value={character}
@@ -146,10 +162,11 @@ export default class OrderForm extends React.Component<{}, State> {
                             />
                         </div>
                     </div>
-                    <div className="text-center mt-30">
+                    <div className="text-center mt-30 wow fadeInUp">
                         <Button color="blue" onClick={this.handleSubmit}>Оформить заказ</Button>
                     </div>
                 </div>
+                <SuccessOrderModal isOpen={isOpenSuccessOrderModal} close={this.handleCloseSuccessOrderModal} />
             </section>
         )
     }
@@ -175,7 +192,7 @@ export default class OrderForm extends React.Component<{}, State> {
 
             form.submit()
 
-            this.handleClearForm()
+            this.handleOpenSuccessOrderModal()
         }
     }
 
@@ -210,9 +227,16 @@ export default class OrderForm extends React.Component<{}, State> {
         return errors
     }
 
-    private handleClearForm = () => {
+    private handleOpenSuccessOrderModal = () => {
         this.setState({...this.state,
-            form: initialFormState
+            form: initialFormState,
+            isOpenSuccessOrderModal: true
+        })
+    }
+
+    private handleCloseSuccessOrderModal = () => {
+        this.setState({...this.state,
+            isOpenSuccessOrderModal: false
         })
     }
 }

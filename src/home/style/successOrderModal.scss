@@ -1,0 +1,51 @@
+.wrap {
+  position: fixed 0;
+  z-index: 100;
+  overflow: auto;
+  padding: 30px;
+  opacity: 0;
+  visibility: hidden;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.overlay {
+  position: absolute 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 1;
+}
+
+.modal-container {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 70px 40px 40px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+  max-width: 590px;
+}
+
+.button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  size: 35px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.icon-close {
+  size: 15px;
+  display: block;
+}
