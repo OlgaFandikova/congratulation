@@ -93,7 +93,7 @@ export default class OrderForm extends React.Component<{}, State> {
                         <input type="text" name="entry.1022715280" value={comment} readOnly />
                     </form>
                     <div className="row mt-60">
-                        <div className="column sm-6 wow slideInLeft">
+                        <div className="column md-6 wow slideInLeft">
                             <InputField
                                 placeholder="Ваше имя"
                                 value={name}
@@ -130,7 +130,7 @@ export default class OrderForm extends React.Component<{}, State> {
                             <Radio id="girl" name="gender" label="Девочка" checked={gender == 'Девочка'}
                                    onChange={() => this.handleChangeField('gender', 'Девочка')} />
                         </div>
-                        <div className="column sm-6 wow slideInRight">
+                        <div className="column md-6 wow slideInRight">
                             <SelectField
                                 placeholder="Выберите персонажа"
                                 value={character}

@@ -46,10 +46,10 @@ export default class About extends React.Component<{}, {}> {
                 </section>
                 <section className={cx('section', 'section-bg', 'wow', 'fadeInUp')}>
                     <div className="container text-center">
-                        <h3 className="font-38 mb-30">
+                        <h3 className={cx('title')}>
                             Впервые в России<br/>авторские поздравления для Ваших деток!
                         </h3>
-                        <Ripple color="blue" className={cx('ripple-button')}>
+                        <Ripple color="red" className={cx('ripple-button')}>
                             <button className={cx('button')}>Заказать</button>
                         </Ripple>
                     </div>

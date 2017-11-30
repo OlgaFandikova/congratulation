@@ -1,4 +1,5 @@
 @import "~common/style/common/variables";
+@import "~common/style/common/mixins";
 
 .icon {
   display: block;
@@ -44,6 +45,14 @@
   }
 }
 
+.title {
+  margin-bottom: 30px;
+  font-size: 30px;
+  @include from-screen-size(sm) {
+    font-size: 38px;
+  }
+}
+
 .ripple-button {
   pointer-events: auto;
 }
@@ -53,8 +62,8 @@
   font-size: 17px;
   line-height: 17px;
   font-weight: 500;
-  color: $blue;
-  border: 2px solid $blue;
+  color: $red;
+  border: 2px solid $red;
   border-radius: 3px;
   box-shadow: rgb(153, 153, 153) 0 0 0 0;
   cursor: pointer;

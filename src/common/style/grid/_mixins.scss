@@ -33,6 +33,7 @@
     padding-right: $gutter + px;
     flex-grow: 1;
     max-width: 100%;
+    width: 100%;
 
     @each $screen in map-keys($screen-sizes) {
 
