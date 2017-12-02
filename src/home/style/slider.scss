@@ -1,4 +1,5 @@
 @import "~common/style/common/variables";
+@import "~common/style/common/mixins";
 
 .slider {
   position: relative;
@@ -14,14 +15,17 @@
 }
 
 .slider-container {
-  height: calc(100vh - 100px);
+  height: 400px;
   position: relative;
-  z-index: 2;
+  z-index: 10;
+  @include from-screen-size(sm) {
+    height: 100vh;
+  }
 }
 
 .images {
   position: absolute 0 !important;
-  z-index: 20;
+  z-index: 15;
 }
 
 .cloud {
@@ -34,6 +38,10 @@
   &.right {
     left: auto !important;
     right: 30px !important;
+    display: none !important;
+    @include from-screen-size(md) {
+      display: block !important;
+    }
   }
 }
 
@@ -41,13 +49,27 @@
   position: absolute !important;
   top: -60px !important;
   left: 25% !important;
+  display: none !important;
+  @include from-screen-size(sm) {
+    display: block !important;
+  }
 }
 
 .bird {
   position: absolute !important;
   top: -230px !important;
-  left: 56% !important;
+  left: auto !important;
+  right: 30px;
   animation-delay: .3s;
+  @include from-screen-size(sm) {
+    display: block !important;
+    left: 80% !important;
+    right: auto;
+  }
+  @include from-screen-size(md) {
+    left: 56% !important;
+    right: auto;
+  }
 }
 
 .star {
@@ -55,6 +77,10 @@
   top: -150px !important;
   left: 70% !important;
   animation-delay: .2s;
+  display: none !important;
+  @include from-screen-size(lg) {
+    display: block !important;
+  }
 }
 
 .rectangle {
@@ -62,10 +88,18 @@
   size: 200px 285px;
   border: 12px solid #fff;
   box-shadow: rgba(0, 0, 0, 0.11) 15px 19px 39px -12px;
+  display: none !important;
+  @include from-screen-size(sm) {
+    display: block !important;
+  }
   &.top {
     top: -190px !important;
     left: 35% !important;
     animation-delay: .4s;
+    display: none !important;
+    @include from-screen-size(sm) {
+      display: block !important;
+    }
   }
   &.left {
     top: auto !important;
@@ -84,19 +118,37 @@
 .text {
   position: absolute !important;
   top: 36% !important;
-  left: 35% !important;
-  z-index: 10;
+  left: 15px !important;
+  right: 15px;
+  z-index: 20;
   text-align: center;
   animation-delay: .8s;
+  @include from-screen-size(sm) {
+    position: absolute !important;
+    left: 35% !important;
+    right: auto;
+  }
 }
 
 .title {
   color: $dark-blue;
-  font-size: 55px;
+  font-size: 30px;
+  @include from-screen-size(sm) {
+    font-size: 40px;
+  }
+  @include from-screen-size(md) {
+    font-size: 55px;
+  }
 }
 
 .ripple-button {
   pointer-events: auto;
+  circle {
+    fill: $blue !important;
+    @include from-screen-size(sm) {
+      fill: #fff !important;
+    }
+  }
 }
 
 .button {
@@ -104,18 +156,26 @@
   font-size: 17px;
   line-height: 17px;
   font-weight: 500;
-  color: #fff;
-  border: 2px solid #fff;
+  color: $blue;
+  border: 2px solid $blue;
   border-radius: 3px;
   box-shadow: rgb(153, 153, 153) 0 0 0 0;
   cursor: pointer;
   padding: 18px 35px;
   background: transparent;
+  @include from-screen-size(sm) {
+    color: #fff;
+    border-color: #fff;
+  }
 }
 
 .circle {
   position: absolute !important;
   border-radius: 50%;
+  display: none !important;
+  @include from-screen-size(sm) {
+    display: block !important;
+  }
 }
 
 .blue {

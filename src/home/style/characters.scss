@@ -1,20 +1,5 @@
 @import "~common/style/common/variables";
 
 .section-bg {
-  //background: url("../img/characters-bg.png") #f1f1f1 no-repeat center;
-  //background: url("../img/kids-parties.jpg") no-repeat center;
-  //background-size: cover;
   background-color: rgba(244, 244, 244, 0.8);
-  position: relative;
-  &:after {
-    content: '';
-    display: block;
-    position: absolute 0;
-    z-index: 1;
-    background: rgba(244, 244, 244, .8);
-  }
-  :global(.container) {
-    position: relative;
-    z-index: 2;
-  }
 }

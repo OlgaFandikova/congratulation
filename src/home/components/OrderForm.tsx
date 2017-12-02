@@ -65,7 +65,7 @@ export default class OrderForm extends React.Component<{}, State> {
                isOpenSuccessOrderModal} = this.state
 
         return (
-            <section className="section">
+            <section className="section" id="orderForm">
                 <div className="container">
                     <h2 className="mb-10 text-primary text-center">Оставить заявку</h2>
                     <p className="font-18 text-center">Для заказа необходимо оставить заявку на сайте</p>

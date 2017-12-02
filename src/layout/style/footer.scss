@@ -1,0 +1,78 @@
+@import "~common/style/common/variables";
+@import "~common/style/common/mixins";
+
+.footer {
+  background: url("../img/footer-bg.jpg") no-repeat center;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute 0;
+    z-index: 1;
+    background-color: #333;
+    opacity: .8;
+  }
+  :global(.container) {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.logo {
+  width: 90px;
+  display: block;
+  margin-right: 20px;
+}
+
+.list {
+  @include from-screen-size(md) {
+    max-width: 300px;
+  }
+}
+
+.list-item {
+  display: block;
+  cursor: pointer;
+  padding: 10px 0;
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, .6);
+  transition: .35s;
+  &:hover {
+    color: $white;
+  }
+  > a {
+    color: rgba(255, 255, 255, .6);
+    text-decoration: none;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.border-item {
+  border-bottom: 1px dashed rgba(255, 255, 255, .2);
+  &:hover {
+    border-color: rgba(255, 255, 255, .4);
+  }
+}
+
+.icon {
+  width: 20px;
+  margin-right: 10px;
+  margin-top: 5px;
+  display: inline-block;
+  vertical-align: top;
+  transition: .35s;
+}
+
+.copyright {
+  background-color: $red;
+  font-size: 13px;
+  color: $white;
+  padding: 15px 0;
+  font-weight: 300;
+  text-align: center;
+}

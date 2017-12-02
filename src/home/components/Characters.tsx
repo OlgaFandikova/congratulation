@@ -44,7 +44,7 @@ export default class Characters extends React.Component<{}, {}> {
 
     render() {
         return (
-            <section className={cx('section', 'section-bg')}>
+            <section className={cx('section', 'section-bg')} id="characters">
                 <div className="container text-center">
                     <h2 className="text-secondary mb-10">Персонажи</h2>
                     <p className="font-18">

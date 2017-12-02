@@ -1,0 +1,40 @@
+@import "~common/style/common/variables";
+@import "~common/style/common/mixins";
+
+.section-bg {
+  background-color: rgba(244, 244, 244, 0.8);
+}
+
+.item {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  color: $body-text-color;
+  text-decoration: none;
+  position: relative;
+  padding: 30px;
+  transition: .35s;
+  @include from-screen-size(sm) {
+    font-size: 18px;
+  }
+  &:hover {
+    color: $secondary;
+  }
+}
+
+.icon {
+  height: 70px;
+  display: block;
+  margin: 0 auto 20px;
+  transition: .35s;
+  .item:hover & {
+    transform: scale(1.2);
+  }
+}
+
+.border {
+  border-left: none;
+  @include from-screen-size(sm) {
+    border-left: 1px solid $default;
+  }
+}

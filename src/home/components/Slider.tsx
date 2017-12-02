@@ -19,11 +19,15 @@ const dataDepths = [
     {'data-depth': 0.7}
 ]
 
+interface Props {
+    scrollToSection: (sectionId: string) => void
+}
+
 interface State {
     animate: boolean
 }
 
-export default class Slider extends React.Component<{}, State> {
+export default class Slider extends React.Component<Props, State> {
 
     state = {
         animate: false
@@ -43,11 +47,12 @@ export default class Slider extends React.Component<{}, State> {
                 this.setState({
                     animate: false
                 })
-            }, 2100)
+            }, 2300)
         })
     }
 
     render() {
+        const {scrollToSection} = this.props
         const {animate} = this.state
 
         return (
@@ -66,7 +71,7 @@ export default class Slider extends React.Component<{}, State> {
                         alt=""
                     />
                     <img
-                        {...dataDepths[1]}
+                        {...dataDepths[3]}
                         src={require('../img/flower.png')}
                         className={cx('flower', {'animated bounceInDown': animate})}
                         alt=""
@@ -88,10 +93,6 @@ export default class Slider extends React.Component<{}, State> {
                     <div {...dataDepths[2]} className={cx('rectangle', 'right', {'animated bounceInUp': animate})} />
                 </div>
                 <div className={cx('container', 'slider-container')} ref="container">
-                    <div className={cx('text', {'animated fadeInDown': animate})}>
-                        <h1 className={cx('title')}>Авторские поздравления<br/>для Ваших малышей</h1>
-                        <Ripple className={cx('ripple-button')}><button className={cx('button')}>Заказать</button></Ripple>
-                    </div>
                     <div {...dataDepths[0]} className={cx('circle', 'purple', {'animated bounceIn': animate})} />
                     <div {...dataDepths[1]} className={cx('circle', 'green', {'animated bounceIn': animate})} />
                     <div {...dataDepths[6]} className={cx('circle', 'yellow', {'animated bounceIn': animate})} />
@@ -99,6 +100,12 @@ export default class Slider extends React.Component<{}, State> {
                     <div {...dataDepths[2]} className={cx('circle', 'blue', {'animated bounceIn': animate})} />
                     <div {...dataDepths[4]} className={cx('circle', 'red', {'animated bounceIn': animate})} />
                     <div {...dataDepths[6]} className={cx('circle', 'small-green', {'animated bounceIn': animate})} />
+                </div>
+                <div className={cx('text', {'animated fadeInDown': animate})}>
+                    <h1 className={cx('title')}>Авторские поздравления<br/>для Ваших малышей</h1>
+                    <Ripple className={cx('ripple-button')} onClick={() => scrollToSection('orderForm')}>
+                        <button className={cx('button')}>Заказать</button>
+                    </Ripple>
                 </div>
             </section>
         )
