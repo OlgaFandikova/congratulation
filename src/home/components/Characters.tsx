@@ -23,9 +23,9 @@ const characters = [
     {img: require('../img/characters/losyash.jpg'), name: 'Лосяш', delay: delays[1], color: 'orange'},
     {img: require('../img/characters/barboskiny.jpg'), name: 'Барбоскины', color: 'purple'},
     {img: require('../img/characters/nolik.jpg'), name: 'Нолик', delay: delays[0], color: 'pink'},
-    {img: require('../img/characters/mikelandzello.jpg'), name: 'Микелянджелло', delay: delays[1], color: 'blue'},
+    {img: require('../img/characters/mikelandzello.jpg'), name: 'Микеланджело', delay: delays[1], color: 'blue'},
     {img: require('../img/characters/rafael.jpg'), name: 'Рафаэль', color: 'green'},
-    {img: require('../img/characters/donatello.jpg'), name: 'Донателло', delay: delays[0], color: 'yellow'},
+    {img: require('../img/characters/donatello.jpg'), name: 'Донатело', delay: delays[0], color: 'yellow'},
     {img: require('../img/characters/leonardo.jpg'), name: 'Леонардо', delay: delays[1], color: 'orange'},
     {img: require('../img/characters/minon.jpg'), name: 'Миньон', color: 'red'},
     {img: require('../img/characters/chip&deyl.jpg'), name: 'Чип и Дейл', delay: delays[0], color: 'purple'}

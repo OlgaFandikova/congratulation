@@ -19,12 +19,12 @@ export default class SchemeWorking extends React.Component<{}, {}> {
             <section className="section">
                 <div className="container text-center">
                     <h2 className="text-primary mb-10">Как мы работаем</h2>
-                    <p className="font-18">Lorem ipsum dolor sit amet, consectetur</p>
+                    <p className="font-18">Мы работаем для вас по следующему алгоритму</p>
                     <div className="row mt-100">
                         <div className="column md-3 sm-6 mb-30 wow fadeInRight" {...delays[0]}>
                             <h3 className="text-right text-default font-38 mb-0">1.</h3>
                             <i className={cx('icon', 'icon-form')} />
-                            Вы оставляете <strong>заявку</strong> нас на сайте
+                            Вы оставляете <strong>заявку</strong> на сайте
                         </div>
                         <div className="column md-3 sm-6 mb-30 wow fadeInRight" {...delays[1]}>
                             <h3 className="text-right text-default font-38 mb-0">2.</h3>

@@ -12,9 +12,7 @@ export default class Contacts extends React.Component<{}, {}> {
             <section className={cx('section', 'section-bg')} id="contacts">
                 <div className="container text-center">
                     <h2 className="text-secondary mb-10">Контакты</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, similique
-                    </p>
+                    <p>Вы можете связаться с нами в любое время!</p>
                     <div className="row mt-50">
                         <div className="column sm-6">
                             <a href="https://www.instagram.com/greetingsforall/?hl=ru" className={cx('item')} target="_blank">

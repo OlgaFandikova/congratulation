@@ -34,6 +34,10 @@
   &.left {
     left: 30px !important;
     animation-delay: .2s;
+    display: none !important;
+    @include from-screen-size(sm) {
+      display: block !important;
+    }
   }
   &.right {
     left: auto !important;
@@ -61,12 +65,14 @@
   left: auto !important;
   right: 30px;
   animation-delay: .3s;
+  display: none !important;
   @include from-screen-size(sm) {
     display: block !important;
     left: 80% !important;
     right: auto;
   }
   @include from-screen-size(md) {
+    display: block !important;
     left: 56% !important;
     right: auto;
   }
